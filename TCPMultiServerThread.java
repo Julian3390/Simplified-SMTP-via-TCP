@@ -1,7 +1,3 @@
-// Julian Bencomo - Antonio Diaz
-// HW #4
-
-
 import java.net.*;
 import java.io.*;
 import java.net.InetAddress;
@@ -22,11 +18,11 @@ public class TCPMultiServerThread extends Thread {
             boolean looping = true;
             do {
 
-                // 2. Send the “220” response including server’s ip address or dns name to the SMTP client.
+
                 fromClient = "";
                 clientSocketOut.println("220 - cs3700a@msudenver.edu");
 
-                // 3a & 3b
+
                 boolean loop = true;
                 while (loop) {
                     fromClient = clientSocketIn.readLine();
@@ -42,15 +38,14 @@ public class TCPMultiServerThread extends Thread {
                     }
 
 
-                    // If the incoming command is NOT
-                    // “MAIL FROM: …”, sends “503 5.5.2 Need mail command” response to the SMTP client and repeat step 3.c.
+
                     else {
                         clientSocketOut.println("503 5.5.2 Send hello first");
                         System.out.println("Response sent to STMP client: 503 5.5.2 Send hello first");
                     }
                 }
 
-                //3c and 3d
+
                 loop = true;
                 while (loop) {
                     fromClient = clientSocketIn.readLine();
@@ -68,7 +63,7 @@ public class TCPMultiServerThread extends Thread {
                     }
                 }
 
-                //3e and 3f
+
                 loop = true;
                 while (loop) {
                     fromClient = clientSocketIn.readLine();
@@ -86,7 +81,7 @@ public class TCPMultiServerThread extends Thread {
                     }
                 }
 
-                //3g and 3h
+
                 loop = true;
                 while (loop) {
                     fromClient = clientSocketIn.readLine();
@@ -102,7 +97,7 @@ public class TCPMultiServerThread extends Thread {
                     }
                 }
 
-                // 3i
+
                 System.out.println("The mail message from the STMP client is: ");
                 while ((fromClient = clientSocketIn.readLine()) != null) {
                     if (fromClient.equals(".")) {
@@ -110,12 +105,12 @@ public class TCPMultiServerThread extends Thread {
                     }
                     System.out.println(fromClient);
                 }
-                //part 3. section j
+
                 clientSocketOut.println("250 Message received and to be delivered");
                 System.out.println("Response sent to STMP client:  250 Message received and to be delivered");
 
 
-                //part 4
+
                 if (clientSocketIn.readLine().equals("QUIT")) {
                     looping = false;
                     InetAddress iPAddress = InetAddress.getLocalHost();
