@@ -1,5 +1,3 @@
-// Julian Bencomo - Antonio Diaz
-// Homework 4
 import java.net.*;
 import java.io.*;
 
