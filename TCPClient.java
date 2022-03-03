@@ -16,9 +16,7 @@ public class TCPClient {
             IPaddress_DNS = systemInput.readLine();
             System.out.println("");
 
-            // Assigned Port Nums
-            // Julian  : 5010
-            // Amtonio : 5070
+          
             tcpSocket = new Socket(IPaddress_DNS, 5010);
 
             socketOut = new PrintWriter(tcpSocket.getOutputStream(),true);
