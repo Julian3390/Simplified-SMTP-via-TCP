@@ -1,5 +1,3 @@
-// Julian Bencomo - Antonio Diaz
-// HW #4
 import java.io.*;
 import java.net.*;
 
